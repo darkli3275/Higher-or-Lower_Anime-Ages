@@ -4,6 +4,10 @@ import main.model.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
 import static main.persistence.NetLoader.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -12,12 +16,12 @@ public class NetLoaderTest {
 
     @BeforeEach
     void setUp() {
-        initializeCharacterData("./data/game/CharacterData.json");
+        initializeCharacterData(CHARACTERDATAPATH);
     }
 
     @Test
     void personGetTest() {
-        Person p = personGet(0);
+        Person p = getPerson(0);
         assertEquals(p.getID(), 0);
         assertEquals(p.getAge(), 0);
         assertEquals(p.getSpecies(), "default");
@@ -42,8 +46,27 @@ public class NetLoaderTest {
         assertEquals(imgPath, "./data/game/test.png");
     }
 
+    /*
     @Test
     void initializeCharacterDataFileNotFoundTest() {
         initializeCharacterData("./data/game/Character.json");
+    }*/
+
+    // getImageTest()
+    public static void main (String[] args) {
+        initializeCharacterData(CHARACTERDATAPATH);
+        JFrame frame = new JFrame("TEST");;
+
+        Person p = getPerson(0);
+        BufferedImage img = (BufferedImage) getImage(p.getID());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JLabel label = new JLabel();
+        label.setIcon(new ImageIcon(img));
+        frame.getContentPane().add(label, BorderLayout.CENTER);
+        frame.setLocationRelativeTo(null);
+
+        frame.pack();
+        frame.setVisible(true);
     }
 }
