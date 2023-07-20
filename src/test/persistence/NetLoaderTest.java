@@ -16,7 +16,7 @@ public class NetLoaderTest {
 
     @BeforeEach
     void setUp() {
-        initializeCharacterData(CHARACTERDATAPATH);
+        initializeCharacterData();
     }
 
     @Test
@@ -31,19 +31,19 @@ public class NetLoaderTest {
     @Test
     void getImagePathTest0() {
         String imgPath = getImagePath(0);
-        assertEquals(imgPath, "./data/game/test.png");
+        assertEquals(imgPath, "data/game/test.png");
     }
 
     @Test
     void getImagePathTestNegative1() {
         String imgPath = getImagePath(-1);
-        assertEquals(imgPath, "./data/game/test.png");
+        assertEquals(imgPath, "data/game/test.png");
     }
 
     @Test
     void getImagePathTestBigPositive() {
         String imgPath = getImagePath(999999999);
-        assertEquals(imgPath, "./data/game/test.png");
+        assertEquals(imgPath, "data/game/test.png");
     }
 
     /*
@@ -52,13 +52,13 @@ public class NetLoaderTest {
         initializeCharacterData("./data/game/Character.json");
     }*/
 
-    // getImageTest()
+    // getNetImageTest()
     public static void main (String[] args) {
-        initializeCharacterData(CHARACTERDATAPATH);
+        initializeCharacterData();
         JFrame frame = new JFrame("TEST");;
 
         Person p = getPerson(0);
-        BufferedImage img = (BufferedImage) getImage(p.getID());
+        BufferedImage img = (BufferedImage) getNetImage(p.getID());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel label = new JLabel();

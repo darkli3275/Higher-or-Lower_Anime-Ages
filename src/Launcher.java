@@ -3,6 +3,7 @@
 * */
 
 import main.ui.MainWindow;
+
 import javax.swing.*;
 
 public class Launcher {

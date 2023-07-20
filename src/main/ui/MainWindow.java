@@ -7,20 +7,25 @@ import java.awt.Toolkit;
 public class MainWindow {
 
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    public int WIDTH = screenSize.width / 2;    //TODO
-    public int HEIGHT = screenSize.height / 2;  //TODO
+    public static int WIDTH = 0;
+    public static int HEIGHT = 0;
     private JFrame window;
+    private GameManager gm = null;
 
     public MainWindow() {
+        WIDTH = (int) (screenSize.width / 1.5);
+        HEIGHT = (int) (screenSize.height / 1.5);
+
         window = new JFrame();
         window.setTitle("Higher or Lower? - Anime Ages");
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setSize(WIDTH, HEIGHT);
         window.setLocationRelativeTo(null);
-        window.setResizable(false);             //TODO
+        window.setResizable(false);
     }
 
+    // Not thread safe
     public void show() {
-        window.setVisible(true);
+        gm = new GameManager(window);
     }
 }

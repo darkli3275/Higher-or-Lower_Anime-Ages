@@ -18,8 +18,8 @@ import java.util.List;
 
 public class NetLoader {
 
-    public static final String CHARACTERDATAPATH = "./data/game/CharacterData.json";
-    private static final String IMAGESPATH = "./data/game/";
+    public static final String CHARACTERDATAPATH = "data/game/CharacterData.json";
+    private static final String IMAGESPATH = "data/game/";
     public static List<Person> person_mp = new ArrayList<Person>();    // index 0 reserved for test AND intended to be consistent with path_mp
 
     /*
@@ -31,12 +31,12 @@ public class NetLoader {
     */
 
     // REQUIRE: Call Upon Startup
-    public static void initializeCharacterData(String path) {
+    public static void initializeCharacterData() {
         // "./data/game/CharacterData.json"
         JSONParser parser = new JSONParser();
 
         try {
-            JSONArray cdata = (JSONArray) parser.parse(new FileReader(path));
+            JSONArray cdata = (JSONArray) parser.parse(new FileReader(CHARACTERDATAPATH));
 
             for (Object o : cdata) {
                 JSONObject person = (JSONObject) o;
@@ -82,7 +82,7 @@ public class NetLoader {
     }
 
     // EFFECTS: returns the image associated with path, null if image not found
-    public static Image getImage(int id) {
+    public static Image getNetImage(int id) {
         BufferedImage i = null;
         try {
             i = ImageIO.read(new File(getImagePath(id)));
