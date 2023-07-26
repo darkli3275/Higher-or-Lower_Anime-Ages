@@ -44,11 +44,14 @@ public class LocalLoader {
 
     public static Image getLocalImage(String file_name) {
         BufferedImage i = null;
+
         try {
             i = ImageIO.read(new File(LOCALPATH + file_name));
         } catch (IOException e) {
             e.printStackTrace();
+            System.exit(1);
         }
+
         return i;
     }
 }

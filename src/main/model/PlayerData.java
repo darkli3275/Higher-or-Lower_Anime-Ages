@@ -47,10 +47,10 @@ public class PlayerData {
     }
 
     private void updateHighScore() {
-        if (score > high_score) {this.high_score = score;}
+        if (score > high_score) {setHighScore(score);}
     }
 
-    private void setScore(int score) {this.score = score;}
+    public void setScore(int score) {this.score = score;}
 
     public void setHighScore(int high_score) {this.high_score = high_score;}
 

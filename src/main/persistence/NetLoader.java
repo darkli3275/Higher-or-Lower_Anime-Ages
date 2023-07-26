@@ -15,11 +15,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+// An abstraction of a database and its methods
 public class NetLoader {
 
     public static final String CHARACTERDATAPATH = "data/game/CharacterData.json";
-    private static final String IMAGESPATH = "data/game/";
+    private static final String IMAGESPATH = "data/game/CharacterImages/";
     public static List<Person> person_mp = new ArrayList<Person>();    // index 0 reserved for test AND intended to be consistent with path_mp
 
     /*
@@ -42,12 +44,13 @@ public class NetLoader {
                 JSONObject person = (JSONObject) o;
 
                 int id = (int) (long) person.get("id");
+                String name = (String) person.get("name");
                 int age = (int) (long) person.get("age");
                 String species = (String) person.get("species");
                 String series = (String) person.get("series");
                 String image_file = (String) person.get("image_file");
 
-                person_mp.add(new Person(id, age, species, series, image_file));
+                person_mp.add(new Person(id, name, age, species, series, image_file));
             }
 
         } catch (FileNotFoundException e) {
@@ -59,12 +62,34 @@ public class NetLoader {
         }
     }
 
+    // EFFECTS: returns random Person excluding those with id's in avoidList.
+    //          null if avoidList covers person_mp entirely
+    public static Person getRandomPerson(List<Integer> avoidList) {
+        int collisions = 0;
+        int randID = generateRandomLegalID();
+
+        while (avoidList.contains(randID) && collisions <= getMapSize()-1) {
+            collisions++;
+            randID++;
+            if (randID >= getMapSize()) randID = 1;
+        }
+
+        if (collisions == getMapSize()) return null;
+        return getPerson(randID);
+    }
+
+    // EFFECTS: returns random Person
+    public static Person getRandomPerson() {
+        int randID = generateRandomLegalID();
+        return getPerson(randID);
+    }
+
     // REQUIRE: initializeCharacterData called beforehand
     // EFFECTS: returns character associated with id, null if non-existent or error
     public static Person getPerson(int id) {
        if (idValid(id)) {
            Person p = person_mp.get(id);
-           return new Person(p.getID(), p.getAge(), p.getSpecies(), p.getSeries(), p.getImageFile());
+           return new Person(p.getID(), p.getName(), p.getAge(), p.getSpecies(), p.getSeries(), p.getImageFile());
        } else {
            return null;
        }
@@ -82,14 +107,22 @@ public class NetLoader {
     }
 
     // EFFECTS: returns the image associated with path, null if image not found
-    public static Image getNetImage(int id) {
+    public static Image getNetImage(String file_name) {
         BufferedImage i = null;
         try {
-            i = ImageIO.read(new File(getImagePath(id)));
+            i = ImageIO.read(new File(IMAGESPATH + file_name));
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return i;
+    }
+
+    private static int generateRandomLegalID() {
+        Random rand = new Random();
+        int randID = rand.nextInt(getMapSize());
+        if (randID == 0) randID = 1;
+        return randID;
     }
 
     private static int getMapSize() {

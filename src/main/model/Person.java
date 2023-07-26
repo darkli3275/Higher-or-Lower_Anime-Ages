@@ -3,6 +3,7 @@ package main.model;
 public class Person {
 
     private int id;
+    private String name;
     private int age;
     private String species;
     private String series;
@@ -10,14 +11,16 @@ public class Person {
 
     public Person() {
         id = 0;
+        name = "default";
         age = 0;
         species = "default";
         series = "default";
         image_file = "test.png";
     }
 
-    public Person(int id, int age, String species, String series, String image_file) {
+    public Person(int id, String name, int age, String species, String series, String image_file) {
         this.id = id;
+        this.name = name;
         this.age = age;
         this.species = species;
         this.series = series;
@@ -27,6 +30,8 @@ public class Person {
     public int getID() {
         return id;
     }
+
+    public String getName() {return name;}
 
     public int getAge() {
         return age;

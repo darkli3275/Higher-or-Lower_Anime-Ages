@@ -10,7 +10,7 @@ public class MainWindow {
     public static int WIDTH = 0;
     public static int HEIGHT = 0;
     private JFrame window;
-    private GameManager gm = null;
+    private GameManager gm;
 
     public MainWindow() {
         WIDTH = (int) (screenSize.width / 1.5);
@@ -21,7 +21,7 @@ public class MainWindow {
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setSize(WIDTH, HEIGHT);
         window.setLocationRelativeTo(null);
-        window.setResizable(false);
+        window.setResizable(true);
     }
 
     // Not thread safe

@@ -6,9 +6,10 @@ import java.awt.*;
 abstract class Page {
 
     protected JLayeredPane pane;
-    JLabel bg;
+    protected JLabel bg;
     protected Page next;
     protected Page prev;
+    protected GameManager gm;
 
     public Page() {
         pane = new JLayeredPane();
@@ -24,6 +25,8 @@ abstract class Page {
         prev = pg;
     }
 
+    protected void setGameManager(GameManager gm) {this.gm = gm;}
+
     protected Page getNextPage() {
         return next;
     }
@@ -33,6 +36,8 @@ abstract class Page {
     }
 
     protected Container getPane() {return pane;}
+
+    abstract void show();
 
     // EFFECTS: sets up the UI elements of the page
     abstract void setup();

@@ -13,7 +13,7 @@ public class Saver {
         JSONObject pdjson = pd.playerDataToJSON();
 
         try {
-            FileWriter file = new FileWriter("data/game/Scores.json");
+            FileWriter file = new FileWriter("data/local/Scores.json");
             file.write(pdjson.toJSONString());
             file.close();
         } catch (IOException e) {

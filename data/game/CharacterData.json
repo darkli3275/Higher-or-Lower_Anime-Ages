@@ -1,9 +1,42 @@
 [
  {
-   "id": 0,
-   "age": 0,
-   "species": "default",
-   "series": "default",
-   "image_file": "test.png"
+  "id": 0,
+  "name": "default",
+  "age": 0,
+  "species": "default",
+  "series": "default",
+  "image_file": "test.png"
+ },
+ {
+  "id": 1,
+  "name": "Giorno Giovanna",
+  "age": 15,
+  "species": "Human",
+  "series": "JoJo's Bizzare Adventure",
+  "image_file": "giorno.png"
+ },
+ {
+  "id": 2,
+  "name": "Alphonse Elric",
+  "age": 14,
+  "species": "Human Soul",
+  "series": "Fullmetal Alchemist",
+  "image_file": "alphonse.png"
+ },
+ {
+  "id": 3,
+  "name": "Jibril",
+  "age": 6407,
+  "species": "Flügel",
+  "series": "No Game No Life",
+  "image_file": "jibril.jpg"
+ },
+ {
+  "id": 4,
+  "name": "Wiz",
+  "age": 20,
+  "species": "Lich",
+  "series": "KonoSuba",
+  "image_file": "wiz.jpg"
  }
 ]
