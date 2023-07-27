@@ -1,3 +1,10 @@
+/**
+ * An abstraction of a database and its interface.
+ * A collection of methods involving retrieving data stored "virtually".
+
+ * @author Raymond Li
+ */
+
 package main.persistence;
 
 import main.model.Person;
@@ -17,28 +24,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-// An abstraction of a database and its methods
 public class NetLoader {
 
-    public static final String CHARACTERDATAPATH = "data/game/CharacterData.json";
-    private static final String IMAGESPATH = "data/game/CharacterImages/";
-    public static List<Person> person_mp = new ArrayList<Person>();    // index 0 reserved for test AND intended to be consistent with path_mp
+    public static final String CHARACTER_DATA_PATH = "data/game/CharacterData.json";
+    private static final String IMAGES_PATH = "data/game/CharacterImages/";
 
-    /*
-    // array of paths to images
-    // intended to be consistent with data/game/CharacterData.json
-    private static final String[] path_mp = new String[]{
-            "./data/game/test.png"
-    };
-    */
+    // Simulated database of game's character data
+    public static List<Person> person_mp = new ArrayList<Person>();
+    // List of file names corresponding to characters in person_mp
+    private static List<String> img_file_mp = new ArrayList<>();
 
-    // REQUIRE: Call Upon Startup
+    // TODO Handle Potential Failure
+    // REQUIRE: Call upon game initialization
+    // EFFECTS: Loads character data and image file paths into game
     public static void initializeCharacterData() {
-        // "./data/game/CharacterData.json"
         JSONParser parser = new JSONParser();
 
         try {
-            JSONArray cdata = (JSONArray) parser.parse(new FileReader(CHARACTERDATAPATH));
+            JSONArray cdata = (JSONArray) parser.parse(new FileReader(CHARACTER_DATA_PATH));
 
             for (Object o : cdata) {
                 JSONObject person = (JSONObject) o;
@@ -50,9 +53,9 @@ public class NetLoader {
                 String series = (String) person.get("series");
                 String image_file = (String) person.get("image_file");
 
-                person_mp.add(new Person(id, name, age, species, series, image_file));
+                person_mp.add(new Person(id, name, age, species, series));
+                img_file_mp.add(image_file);
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (ParseException e) {
@@ -62,55 +65,44 @@ public class NetLoader {
         }
     }
 
+    // REQUIRE: initializeCharacterData called beforehand
+    // EFFECTS: Returns character associated with id, null if non-existent or error
+    public static Person getPerson(int id) {
+        if (idValid(id)) {
+            Person p = person_mp.get(id);
+            return new Person(p.getID(), p.getName(), p.getAge(), p.getSpecies(), p.getSeries());
+        } else {
+            return null;
+        }
+    }
+
     // EFFECTS: returns random Person excluding those with id's in avoidList.
     //          null if avoidList covers person_mp entirely
     public static Person getRandomPerson(List<Integer> avoidList) {
         int collisions = 0;
         int randID = generateRandomLegalID();
 
-        while (avoidList.contains(randID) && collisions <= getMapSize()-1) {
+        while (avoidList.contains(randID) && collisions <= getPersonMapSize()-1) {
             collisions++;
             randID++;
-            if (randID >= getMapSize()) randID = 1;
+            if (randID >= getPersonMapSize()) randID = 1;
         }
 
-        if (collisions == getMapSize()) return null;
+        if (collisions == getPersonMapSize()) return null;
         return getPerson(randID);
     }
 
-    // EFFECTS: returns random Person
+    // EFFECTS: Returns random Person
     public static Person getRandomPerson() {
         int randID = generateRandomLegalID();
         return getPerson(randID);
     }
 
-    // REQUIRE: initializeCharacterData called beforehand
-    // EFFECTS: returns character associated with id, null if non-existent or error
-    public static Person getPerson(int id) {
-       if (idValid(id)) {
-           Person p = person_mp.get(id);
-           return new Person(p.getID(), p.getName(), p.getAge(), p.getSpecies(), p.getSeries(), p.getImageFile());
-       } else {
-           return null;
-       }
-    }
-
-    // EFFECTS: return path to image of character associated with id, path to test image if id error
-    public static String getImagePath(int id) {
-        Person p;
-        if (idValid(id)) {
-            p = person_mp.get(id);
-        } else {
-            p = person_mp.get(0);
-        }
-        return IMAGESPATH + p.getImageFile();
-    }
-
-    // EFFECTS: returns the image associated with path, null if image not found
-    public static Image getNetImage(String file_name) {
+    // EFFECTS: Returns the image associated with character id. Returns null if image not found.
+    public static Image getNetCharacterImage(int id) {
         BufferedImage i = null;
         try {
-            i = ImageIO.read(new File(IMAGESPATH + file_name));
+            i = ImageIO.read(new File(IMAGES_PATH + getImagePath(id)));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -118,18 +110,28 @@ public class NetLoader {
         return i;
     }
 
+    // EFFECTS: Returns path to image of character associated with id. Returns null if error.
+    public static String getImagePath(int id) {
+        if (idValid(id)) {
+            return img_file_mp.get(id);
+        }
+        return null;
+    }
+
+    // EFFECTS: Returns a random legal character ID. Returns 1 if ID 0 is generated.
     private static int generateRandomLegalID() {
         Random rand = new Random();
-        int randID = rand.nextInt(getMapSize());
+        int randID = rand.nextInt(getPersonMapSize());
         if (randID == 0) randID = 1;
         return randID;
     }
 
-    private static int getMapSize() {
-        return person_mp.size();
+    // EFFECTS: Returns true if id is within bounds of person_mp's size
+    private static boolean idValid(int id) {
+        return (id >= 0 && id < getPersonMapSize());
     }
 
-    private static boolean idValid(int id) {
-        return (id >= 0 && id < getMapSize());
+    private static int getPersonMapSize() {
+        return person_mp.size();
     }
 }

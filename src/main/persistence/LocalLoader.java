@@ -1,3 +1,9 @@
+/**
+ * Collection of methods involving retrieving data stored locally.
+ *
+ * @author Raymond Li
+ */
+
 package main.persistence;
 
 import main.model.PlayerData;
@@ -13,18 +19,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-// Loads High Score Info
 public class LocalLoader {
 
-    public static final String PLAYERDATAPATH = "data/local/Scores.json";
-    public static final String LOCALPATH = "data/local/";
+    public static final String PLAYER_DATA_PATH = "data/local/Scores.json";
+    public static final String LOCAL_PATH = "data/local/";
 
-    // EFFECTS: Loads prev_score, high_score, total_score from save file path, null if error
+    // EFFECTS: Loads and returns saved player data, returns null if error
     public static PlayerData initializePlayerData() {
         JSONParser parser = new JSONParser();
 
         try {
-            JSONObject pdata = (JSONObject) parser.parse(new FileReader(PLAYERDATAPATH));
+            JSONObject pdata = (JSONObject) parser.parse(new FileReader(PLAYER_DATA_PATH));
 
             int prev_score = (int) (long) pdata.get("prev_score");
             int high_score = (int) (long) pdata.get("high_score");
@@ -42,14 +47,14 @@ public class LocalLoader {
         return null;
     }
 
+    // EFFECTS: Loads and returns image stored locally. Returns null if unsuccessful
     public static Image getLocalImage(String file_name) {
         BufferedImage i = null;
 
         try {
-            i = ImageIO.read(new File(LOCALPATH + file_name));
+            i = ImageIO.read(new File(LOCAL_PATH + file_name));
         } catch (IOException e) {
             e.printStackTrace();
-            System.exit(1);
         }
 
         return i;

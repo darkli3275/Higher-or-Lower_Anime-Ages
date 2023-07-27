@@ -1,3 +1,10 @@
+/**
+ * The class containing everything game window-related
+ * and launches the GameManager.
+ *
+ * @author Raymond Li
+ */
+
 package main.ui;
 
 import javax.swing.*;
@@ -12,6 +19,7 @@ public class MainWindow {
     private JFrame window;
     private GameManager gm;
 
+    // EFFECTS: Creates and shows game window
     public MainWindow() {
         WIDTH = (int) (screenSize.width / 1.5);
         HEIGHT = (int) (screenSize.height / 1.5);
@@ -21,11 +29,11 @@ public class MainWindow {
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setSize(WIDTH, HEIGHT);
         window.setLocationRelativeTo(null);
-        window.setResizable(true);
+        window.setResizable(false);
     }
 
-    // Not thread safe
     public void show() {
         gm = new GameManager(window);
+        gm.showStartPage();
     }
 }

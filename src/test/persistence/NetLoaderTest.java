@@ -67,7 +67,7 @@ public class NetLoaderTest {
         System.out.println(p.getAge());
         System.out.println(p.getSpecies());
         System.out.println(p.getSeries());
-        System.out.println(p.getImageFile());
+        System.out.println(getImagePath(p.getID()));
     }
 
     /*
@@ -101,7 +101,7 @@ public class NetLoaderTest {
         JFrame frame = new JFrame("TEST");;
 
         Person p = getRandomPerson();
-        BufferedImage img = (BufferedImage) getNetImage(p.getImageFile());
+        BufferedImage img = (BufferedImage) getNetCharacterImage(p.getID());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel label = new JLabel();

@@ -17,6 +17,7 @@ public class LocalLoaderTest {
     @Test
     void initializePlayerDataTest() {
         PlayerData pd = initializePlayerData();
+
         // score, prev, high, total
         assertEquals(pd.getScore(), 0);
         assertEquals(pd.getPrevScore(), 10);
