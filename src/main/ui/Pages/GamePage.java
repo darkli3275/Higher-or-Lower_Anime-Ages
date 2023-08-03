@@ -171,7 +171,7 @@ public class GamePage extends Page implements ActionListener {
                 x, SERIES_Y, text_box_width, SERIES_BOX_HEIGHT);
 
         JLabel age;
-        if (p2.getAge() % 1 != 0) {
+        if (p1.getAge() % 1 != 0) {
             age = (JLabel) makeText(String.valueOf(p1.getAge()), AGE_TEXT_SIZE, Color.YELLOW,
                     x, AGE_Y, text_box_width, AGE_BOX_HEIGHT);
         } else {

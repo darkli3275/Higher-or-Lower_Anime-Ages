@@ -117,7 +117,7 @@
   "age": 7,
   "species": "Human",
   "series": "Non Non Biyori",
-  "image_file": "renge.png"
+  "image_file": "renge.jpg"
  },
  {
   "id": 15,
@@ -125,7 +125,7 @@
   "age": 20,
   "species": "Human",
   "series": "Non Non Biyori",
-  "image_file": "kaede.jpg"
+  "image_file": "kaede.jpeg"
  },
  {
   "id": 16,
@@ -157,7 +157,7 @@
   "age": 23,
   "species": "Human",
   "series": "Domestic Girlfriend",
-  "image_file": "hina.jpg"
+  "image_file": "hina.jpeg"
  },
  {
   "id": 20,

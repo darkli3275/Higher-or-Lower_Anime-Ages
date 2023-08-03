@@ -58,7 +58,11 @@ public class StartPage extends Page {
     // EFFECTS: Sets up page's background
     private void setupBG() {
         Image bgImg = gm.getLocalImage(BG_FILE_NAME);
-        bg = (JLabel) makeBG(bgImg);
+        if (bgImg != null) {
+            bg = (JLabel) makeBG(bgImg);
+        } else {
+            bg = (JLabel) makeBG(Color.BLACK);
+        }
 
         pane.add(bg, -1);
     }
