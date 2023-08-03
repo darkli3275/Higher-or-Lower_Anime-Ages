@@ -38,5 +38,269 @@
   "species": "Lich",
   "series": "KonoSuba",
   "image_file": "wiz.jpg"
+ },
+ {
+  "id": 5,
+  "name": "Tanjiro Kamado",
+  "age": 15,
+  "species": "Human",
+  "series": "Demon Slayer",
+  "image_file": "tanjiro.png"
+ },
+ {
+  "id": 6,
+  "name": "Nezuko Kamado",
+  "age": 14,
+  "species": "Oni (Demon)",
+  "series": "Demon Slayer",
+  "image_file": "nezuko.png"
+ },
+ {
+  "id": 7,
+  "name": "Inosuke Hashibara",
+  "age": 15,
+  "species": "Human",
+  "series": "Demon Slayer",
+  "image_file": "inosuke.jpg"
+ },
+ {
+  "id": 8,
+  "name": "Naruto Uzumaki",
+  "age": 16,
+  "species": "Human",
+  "series": "Boruto",
+  "image_file": "naruto.png"
+ },
+ {
+  "id": 9,
+  "name": "Rem",
+  "age": 19,
+  "species": "Oni (Demon)",
+  "series": "Re: Zero",
+  "image_file": "rem.png"
+ },
+ {
+  "id": 10,
+  "name": "Ram",
+  "age": 19,
+  "species": "Oni (Demon)",
+  "series": "Re: Zero",
+  "image_file": "ram.png"
+ },
+ {
+  "id": 11,
+  "name": "Roswaal J. Mathers",
+  "age": 400,
+  "species": "Human",
+  "series": "Re: Zero",
+  "image_file": "roswaal.png"
+ },
+ {
+  "id": 12,
+  "name": "Echidna",
+  "age": 400,
+  "species": "Human",
+  "series": "Re: Zero",
+  "image_file": "echidna.png"
+ },
+ {
+  "id": 13,
+  "name": "Puck",
+  "age": 421,
+  "species": "Spirit",
+  "series": "Re: Zero",
+  "image_file": "puck.png"
+ },
+ {
+  "id": 14,
+  "name": "Renge Miyauchi",
+  "age": 7,
+  "species": "Human",
+  "series": "Non Non Biyori",
+  "image_file": "renge.png"
+ },
+ {
+  "id": 15,
+  "name": "Kaede Kagayama",
+  "age": 20,
+  "species": "Human",
+  "series": "Non Non Biyori",
+  "image_file": "kaede.jpg"
+ },
+ {
+  "id": 16,
+  "name": "DIO",
+  "age": 120,
+  "species": "Vampire",
+  "series": "JoJo's Bizzare Adventure",
+  "image_file": "dio.png"
+ },
+ {
+  "id": 17,
+  "name": "Felix",
+  "age": 20,
+  "species": "Beast Human",
+  "series": "Re: Zero",
+  "image_file": "felix.png"
+ },
+ {
+  "id": 18,
+  "name": "Rui Tachibana",
+  "age": 16,
+  "species": "Human",
+  "series": "Domestic Girlfriend",
+  "image_file": "rui.png"
+ },
+ {
+  "id": 19,
+  "name": "Hina Tachibana",
+  "age": 23,
+  "species": "Human",
+  "series": "Domestic Girlfriend",
+  "image_file": "hina.jpg"
+ },
+ {
+  "id": 20,
+  "name": "Chocola",
+  "age": 0.75,
+  "species": "Catgirl",
+  "series": "Nekopara",
+  "image_file": "chocola.jpg"
+ },
+ {
+  "id": 21,
+  "name": "Vanilla",
+  "age": 0.75,
+  "species": "Catgirl",
+  "series": "Nekopara",
+  "image_file": "vanilla.jpg"
+ },
+ {
+  "id": 22,
+  "name": "Coconut",
+  "age": 1,
+  "species": "Catgirl",
+  "series": "Nekopara",
+  "image_file": "coconut.jpg"
+ },
+ {
+  "id": 23,
+  "name": "Azuki",
+  "age": 3,
+  "species": "Catgirl",
+  "series": "Nekopara",
+  "image_file": "azuki.jpg"
+ },
+ {
+  "id": 24,
+  "name": "Maple",
+  "age": 2,
+  "species": "Catgirl",
+  "series": "Nekopara",
+  "image_file": "maple.jpg"
+ },
+ {
+  "id": 25,
+  "name": "Cinammon",
+  "age": 2,
+  "species": "Catgirl",
+  "series": "Nekopara",
+  "image_file": "cinammon.jpg"
+ },
+ {
+  "id": 26,
+  "name": "Beatrice",
+  "age": 400,
+  "species": "Spirit",
+  "series": "Re: Zero",
+  "image_file": "beatrice.png"
+ },
+ {
+  "id": 27,
+  "name": "Princess Syalis",
+  "age": 19,
+  "species": "Human",
+  "series": "Sleepy Princess",
+  "image_file": "syalis.jpg"
+ },
+ {
+  "id": 28,
+  "name": "Kinue Hayase",
+  "age": 42,
+  "species": "Human",
+  "series": "Masamune-kun's Revenge",
+  "image_file": "kinue.jpg"
+ },
+ {
+  "id": 29,
+  "name": "Chinatsu Hayase",
+  "age": 13,
+  "species": "Human",
+  "series": "Masamune-kun's Revenge",
+  "image_file": "chinatsu.jpg"
+ },
+ {
+  "id": 30,
+  "name": "Cory",
+  "age": 15,
+  "species": "Human",
+  "series": "Cory in the House",
+  "image_file": "cory.png"
+ },
+ {
+  "id": 31,
+  "name": "Sasha Necron",
+  "age": 15,
+  "species": "Demon",
+  "series": "Maou Gakuin",
+  "image_file": "sasha.jpg"
+ },
+ {
+  "id": 32,
+  "name": "Misha Necron",
+  "age": 15,
+  "species": "Demon",
+  "series": "Maou Gakuin",
+  "image_file": "misha.jpg"
+ },
+ {
+  "id": 33,
+  "name": "Senko",
+  "age": 800,
+  "species": "Kitsune",
+  "series": "The Helpful Fox Senko-san",
+  "image_file": "senko.png"
+ },
+ {
+  "id": 34,
+  "name": "Megumin",
+  "age": 14,
+  "species": "Crimson Demon",
+  "series": "KonoSuba",
+  "image_file": "megumin.png"
+ },
+ {
+  "id": 35,
+  "name": "Darkness",
+  "age": 19,
+  "species": "Human",
+  "series": "KonoSuba",
+  "image_file": "darkness.jpg"
+ },
+ {
+  "id": 36,
+  "name": "Sophie Twilight",
+  "age": 360,
+  "species": "Vampire",
+  "series": "Tonari no Kyuuketsuki-san",
+  "image_file": "sophie.png"
+ },
+ {
+  "id": 37,
+  "name": "Ellie",
+  "age": 450,
+  "species": "Vampire",
+  "series": "Tonari no Kyuuketsuki-san",
+  "image_file": "ellie.jpg"
  }
 ]

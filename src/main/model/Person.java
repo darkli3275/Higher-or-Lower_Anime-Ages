@@ -10,7 +10,7 @@ public class Person {
 
     private int id;
     private String name;
-    private int age;
+    private double age;
     private String species;
     private String series;
 
@@ -22,7 +22,7 @@ public class Person {
         series = "default";
     }
 
-    public Person(int id, String name, int age, String species, String series) {
+    public Person(int id, String name, double age, String species, String series) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -33,14 +33,14 @@ public class Person {
     // Getters
     public int getID() {return id;}
     public String getName() {return name;}
-    public int getAge() {return age;}
+    public double getAge() {return age;}
     public String getSpecies() {return species;}
     public String getSeries() {return series;}
 
     // Setters
     public void setID(int id) {this.id = id;}
     public void setName(String name) {this.name = name;}
-    public void setAge(int age) {this.age = age;}
+    public void setAge(double age) {this.age = age;}
     public void setSpecies(String species) {this.species = species;}
     public void setSeries(String series) {this.series = series;}
 }

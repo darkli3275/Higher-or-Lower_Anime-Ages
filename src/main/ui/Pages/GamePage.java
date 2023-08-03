@@ -169,8 +169,16 @@ public class GamePage extends Page implements ActionListener {
                 x, NAME_Y, text_box_width, NAME_BOX_HEIGHT);
         JLabel series = (JLabel) makeText("from \"" + p1.getSeries() + "\" is", SERIES_TEXT_SIZE, Color.WHITE,
                 x, SERIES_Y, text_box_width, SERIES_BOX_HEIGHT);
-        JLabel age = (JLabel) makeText(Integer.toString(p1.getAge()), AGE_TEXT_SIZE, Color.YELLOW,
-                x, AGE_Y, text_box_width, AGE_BOX_HEIGHT);
+
+        JLabel age;
+        if (p2.getAge() % 1 != 0) {
+            age = (JLabel) makeText(String.valueOf(p1.getAge()), AGE_TEXT_SIZE, Color.YELLOW,
+                    x, AGE_Y, text_box_width, AGE_BOX_HEIGHT);
+        } else {
+            age = (JLabel) makeText(Integer.toString((int) p1.getAge()), AGE_TEXT_SIZE, Color.YELLOW,
+                    x, AGE_Y, text_box_width, AGE_BOX_HEIGHT);
+        }
+        
         JLabel yearsOld = (JLabel) makeText("years old", SMALL_TEXT_SIZE, Color.WHITE,
                 x, years_old_y, text_box_width, SMALL_BOX_HEIGHT);
 
@@ -329,7 +337,12 @@ public class GamePage extends Page implements ActionListener {
         }
 
         JLabel mark = new JLabel(new ImageIcon(markImg));
-        JLabel p2Age = (JLabel) makeText(Integer.toString(p2.getAge()), AGE_TEXT_SIZE, Color.YELLOW);
+        JLabel p2Age;
+        if (p2.getAge() % 1 != 0) {
+            p2Age = (JLabel) makeText(String.valueOf(p2.getAge()), AGE_TEXT_SIZE, Color.YELLOW);
+        } else {
+            p2Age = (JLabel) makeText(Integer.toString((int) p2.getAge()), AGE_TEXT_SIZE, Color.YELLOW);
+        }
 
         panel.add(p2Age);
         panel.add(mark);

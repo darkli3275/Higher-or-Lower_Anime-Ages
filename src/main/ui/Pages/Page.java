@@ -52,11 +52,9 @@ public abstract class Page {
     public JLayeredPane getPane() {return pane;}
     public ArrayList<Component> getStaleComponents() {return stale_components;}
 
-    // EFFECTS: Refreshes any stale page components
+    // EFFECTS: Removes any stale page components
     public void removeStaleComponents() {
-        for (Component component : stale_components) {
-            pane.remove(component);
-        }
+        stale_components.forEach((n) -> pane.remove(n));
     }
 
     // EFFECTS: Refreshes any stale page components

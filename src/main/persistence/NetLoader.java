@@ -48,7 +48,17 @@ public class NetLoader {
 
                 int id = (int) (long) person.get("id");
                 String name = (String) person.get("name");
-                int age = (int) (long) person.get("age");
+
+                double age = -1;
+                try {
+                    age = (double) (long) person.get("age");
+                } catch (Exception e) {
+                    age = (double) person.get("age");
+                }
+                if (age < 0) {
+                    age = 0;
+                }
+
                 String species = (String) person.get("species");
                 String series = (String) person.get("series");
                 String image_file = (String) person.get("image_file");
@@ -104,6 +114,7 @@ public class NetLoader {
         try {
             i = ImageIO.read(new File(IMAGES_PATH + getImagePath(id)));
         } catch (IOException e) {
+            System.out.println(id);
             e.printStackTrace();
         }
 
